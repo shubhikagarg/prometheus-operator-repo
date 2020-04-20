@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  creationTimestamp: "2020-03-24T06:32:22Z"
+  generation: 1
+  labels:
+    app: java
+  name: java-app
+  namespace: demo
+spec:
+  endpoints:
+  - path: /actuator/metrics
+    port: web
+  namespaceSelector:
+    matchNames:
+    - demo
+  selector:
+    matchLabels:
+      app: java
+      release: my-prometheus-operator
