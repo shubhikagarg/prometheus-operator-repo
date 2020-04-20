@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  creationTimestamp: null
+  labels:
+    prometheus: prometheus
+    role: alert-rules
+  name: prometheus-example-rules
+spec:
+  groups:
+  - name: ./prometheus.rules
+    rules:
+    - alert: ExampleAlert
+      expr: vector(1)
