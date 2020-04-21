@@ -13,8 +13,8 @@ spec:
     metadata:
       labels:
         app: java
-      annotations:
-        prometheus.io/scrape: 'true'       
+        #     annotations:
+        # prometheus.io/scrape: 'true'       
 
     spec:
       containers:

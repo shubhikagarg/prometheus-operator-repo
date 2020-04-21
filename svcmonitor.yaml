@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: java-front-end
+  labels:
+    team: front-end
+  namespace: default
+spec:
+  jobLabel: java-front-end-metrics
+  selector:
+    matchLabels:
+      release: my-prometheus-operator
+  namespaceSelector:
+    matchNames:
+    - default
+  endpoints:
+  - targetPort: 8085
+    path: /actuator/prometheus
+    port: web
